@@ -8,7 +8,7 @@ export default defineConfig({
     exclude: [
       'node_modules/**',
       // Live Supabase integration suite (disabled until backend/schema is stable again)
-      'tests/ndaIntegration.test.ts',
+      
     ],
     coverage: {
       reporter: ['text', 'json', 'html'],

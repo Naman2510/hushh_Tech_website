@@ -23,8 +23,8 @@ export const getWalletInvestmentClass = (amount) => {
     return "Class C";
   }
 
-  if (amount >= 5_000_000) return "Class A";
-  if (amount >= 2_000_000) return "Class B";
+  if (amount >= 5000000) return "Class A";
+  if (amount >= 2000000) return "Class B";
   return "Class C";
 };
 
@@ -138,7 +138,7 @@ export const buildGoldPassPayload = (input = {}) => {
 
 export const buildWalletCardContentFromPayload = (payload = {}) => {
   const passUrl =
-    getTrimmedString(payload?.barcode?.message) || DEFAULT_WALLET_ROOT_URL;
+    getTrimmedString((payload && payload.barcode) ? payload.barcode.message : null) || DEFAULT_WALLET_ROOT_URL;
   const investmentLabel = getWalletPayloadFieldValue(
     payload?.secondaryFields,
     "class",
